@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/core/utilies/app_fonts.dart';
 import 'package:quiz_app/featuers/splash/presentation/view/splash_screen.dart';
 
 main(){
@@ -10,6 +11,9 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: AppFonts.almarai
+      ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
