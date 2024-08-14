@@ -9,13 +9,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: AppBar(
-        toolbarHeight: 80,
-        flexibleSpace: CustomAbbpar(text: AppTexts.quizApp,),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: AppColors.white,
+        appBar: AppBar(
+          toolbarHeight: 80,
+          flexibleSpace: CustomAbbpar(text: AppTexts.quizApp,),
+        ),
+        body: HomeBody(),
       ),
-      body: HomeBody(),
     );
   }
 }
