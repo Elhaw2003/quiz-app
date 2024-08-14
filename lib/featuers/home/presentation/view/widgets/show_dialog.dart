@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/core/utilies/app_colors.dart';
 import 'package:quiz_app/core/utilies/app_texts.dart';
 import 'package:quiz_app/core/widgets/custom_bottom.dart';
+import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dart';
 
 class customShowDialog extends StatelessWidget {
-  const customShowDialog({super.key});
-
+   customShowDialog({super.key});
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -42,7 +43,7 @@ class customShowDialog extends StatelessWidget {
                       ),
                       SizedBox(height: 18,),
                       Text(
-                          "(1/6)",
+                          "(${Provider.of<HomeProvider>(context).score}/${Provider.of<HomeProvider>(context).qustionList.length*10})",
                         style: TextStyle(
                             color: AppColors.green,
                             fontSize: 18,
@@ -62,6 +63,9 @@ class customShowDialog extends StatelessWidget {
               ),
               SizedBox(height: 16,),
               CustomBottom(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
                   colorBottom: AppColors.green,
                   colorBorder: AppColors.green,
                   colorTitle: AppColors.white,

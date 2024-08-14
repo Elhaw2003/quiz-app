@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/data/qustion_list.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/core/utilies/app_colors.dart';
 import 'package:quiz_app/core/utilies/app_texts.dart';
 import 'package:quiz_app/core/widgets/custom_bottom.dart';
 import 'package:quiz_app/core/widgets/custom_driver.dart';
-import 'package:quiz_app/featuers/home/presentation/view/widgets/show_dialog.dart';
+import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dart';
+
 
 class HomeBody extends StatefulWidget {
    HomeBody({super.key});
@@ -14,35 +15,6 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  int quistionIndex = 0;
-  int count = 1;
-  plusQuistionIndex(){
-    if(quistionIndex < qustionList.length-1){
-      if(qustionList[quistionIndex].selectedAnswer != null ){
-        quistionIndex++;
-        count++;
-        setState(() {});
-      }
-      else{
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: AppColors.green,
-            content: Text(
-                 textAlign: TextAlign.end,
-                "Please choose one answer",
-            )
-        ));
-      }
-    }
-    else{
-      showDialog(
-          context: context,
-          builder: (c){
-            return customShowDialog();
-          }
-      );
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -52,7 +24,7 @@ class _HomeBodyState extends State<HomeBody> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
-            qustionList[quistionIndex].title,
+            Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].title,
             style: TextStyle(
                 color: AppColors.green,
                 fontWeight: FontWeight.w700,
@@ -68,7 +40,7 @@ class _HomeBodyState extends State<HomeBody> {
         ),
         SizedBox(height: 17,),
         // ( ... )  >>  cascade operator
-        ...qustionList[quistionIndex].answers.map(
+        ...Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].answers.map(
             (answer){
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -77,9 +49,9 @@ class _HomeBodyState extends State<HomeBody> {
                     Radio(
                         fillColor: WidgetStateProperty.all(AppColors.green),
                         value: answer,
-                        groupValue: qustionList[quistionIndex].selectedAnswer,
+                        groupValue: Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].selectedAnswer,
                         onChanged: (t) {
-                      qustionList[quistionIndex].selectedAnswer = t;
+                          Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].selectedAnswer = t;
                       setState(() {});
                     }),
                     Expanded(
@@ -108,18 +80,18 @@ class _HomeBodyState extends State<HomeBody> {
           padding: const EdgeInsets.symmetric(horizontal: 132),
           child: CustomBottom(
             onTap: (){
-              plusQuistionIndex();
+              Provider.of<HomeProvider>(context).plusQuistionIndex(context);
             },
               colorBottom: AppColors.green,
               colorBorder: AppColors.green,
               colorTitle: AppColors.white,
-              title: quistionIndex == qustionList.length - 1 ? AppTexts.send:AppTexts.next
+              title: Provider.of<HomeProvider>(context).quistionIndex == Provider.of<HomeProvider>(context).qustionList.length - 1 ? AppTexts.send:AppTexts.next
           ),
         ),
         SizedBox(height: 40,),
         Center(
           child: Text(
-            "(${count}/${qustionList.length})",
+            "(${Provider.of<HomeProvider>(context).count}/${Provider.of<HomeProvider>(context).qustionList.length})",
             style: TextStyle(
               color: AppColors.grey,
               fontWeight: FontWeight.w700,

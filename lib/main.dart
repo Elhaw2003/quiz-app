@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/core/utilies/app_fonts.dart';
+import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dart';
 import 'package:quiz_app/featuers/splash/presentation/view/splash_screen.dart';
 
 main(){
-  runApp(QuizApp());
+  runApp(Provider(
+      create: (context) => HomeProvider(),
+      child: QuizApp()
+  ));
 }
 class QuizApp extends StatelessWidget {
   const QuizApp({super.key});
