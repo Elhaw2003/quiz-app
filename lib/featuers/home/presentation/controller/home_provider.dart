@@ -48,6 +48,8 @@ class HomeProvider extends ChangeNotifier{
     else{
       checkAnswer(context);
       showDialog(
+          //>> (barrierDismissible: false)>> حتى لا يتم غلق الـ dialog عند الضغط على الشاشه
+          barrierDismissible: false,
           context: context,
           builder: (c){
             return customShowDialog();
@@ -55,7 +57,19 @@ class HomeProvider extends ChangeNotifier{
       );
     }
   }
-
+  changeSelectedAnswersToNull(){
+    for(int i = 0 ; i< qustionList.length;i++){
+      qustionList[i].selectedAnswer = null;
+    }
+  }
+ reStart(context){
+    quistionIndex = 0;
+    changeSelectedAnswersToNull();
+    count = 1;
+    score = 0;
+    Navigator.pop(context);
+    notifyListeners();
+ }
 
 
 }

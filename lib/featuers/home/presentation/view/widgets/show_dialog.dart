@@ -11,6 +11,7 @@ class customShowDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       backgroundColor: AppColors.white,
       actions: [
@@ -24,7 +25,7 @@ class customShowDialog extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: IconButton(
                     onPressed: (){
-                      Navigator.pop(context);
+                      Provider.of<HomeProvider>(context,listen: false).reStart(context);
                     },
                     icon: Icon(Icons.close,color: AppColors.black,)
                 ),
@@ -76,7 +77,7 @@ class customShowDialog extends StatelessWidget {
               SizedBox(height: 16,),
               CustomBottom(
                   onTap: (){
-                    Navigator.pop(context);
+                    Provider.of<HomeProvider>(context,listen: false).reStart(context);
                   },
                   colorBottom: AppColors.mainColor,
                   colorBorder: AppColors.mainColor,

@@ -6,6 +6,8 @@ class CustomAbbpar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      //automaticallyImplyLeading: false,>>( using for remove arrow back in abbpar
+      automaticallyImplyLeading: false,
       backgroundColor: AppColors.mainColor,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(

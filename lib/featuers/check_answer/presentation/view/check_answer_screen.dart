@@ -12,7 +12,7 @@ class CheckAnswerScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
-        leading: null,
+        automaticallyImplyLeading: false,
         flexibleSpace: CustomAbbpar(
           text: AppTexts.checkAnswer,
         ),
