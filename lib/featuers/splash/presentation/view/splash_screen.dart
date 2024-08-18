@@ -19,14 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(seconds: 4),
         (){
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (c){
-          return HomeScreen();
+          return const HomeScreen();
         }));
         }
     );
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.white,
       body: SplashBody(),
     );

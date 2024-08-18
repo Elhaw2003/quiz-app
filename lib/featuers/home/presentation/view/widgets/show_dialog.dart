@@ -41,7 +41,7 @@ class customShowDialog extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 75,vertical: 30),
                   child: Column(
                     children: [
-                      Text(
+                       const Text(
                           AppTexts.result,
                         style: TextStyle(
                           color: AppColors.grey,
@@ -52,7 +52,7 @@ class customShowDialog extends StatelessWidget {
                       SizedBox(height: 18,),
                       Text(
                           "(${Provider.of<HomeProvider>(context).score}/${Provider.of<HomeProvider>(context).qustionList.length*10})",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: AppColors.mainColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w700

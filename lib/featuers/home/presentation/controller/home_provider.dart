@@ -71,6 +71,4 @@ class HomeProvider extends ChangeNotifier{
     Navigator.pop(context);
     notifyListeners();
  }
-
-
 }

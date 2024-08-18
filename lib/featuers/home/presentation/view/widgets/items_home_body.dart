@@ -25,7 +25,7 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
             Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: AppColors.mainColor,
                 fontWeight: FontWeight.w700,
                 fontSize: 14
@@ -57,7 +57,7 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
                     Expanded(
                       child: Text(
                         answer,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: AppColors.grey,
                             fontWeight: FontWeight.w400,
                             fontSize: 14
@@ -92,7 +92,7 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
         Center(
           child: Text(
             "(${Provider.of<HomeProvider>(context).count}/${Provider.of<HomeProvider>(context).qustionList.length})",
-            style: TextStyle(
+            style: const TextStyle(
                 color: AppColors.grey,
                 fontWeight: FontWeight.w700,
                 fontSize: 16

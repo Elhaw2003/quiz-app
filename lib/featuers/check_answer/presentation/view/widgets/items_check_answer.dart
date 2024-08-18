@@ -18,7 +18,7 @@ class ItemsCheckAnswer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Text(
             "(${countIndex}",
-            style: TextStyle(
+            style: const TextStyle(
                 color: AppColors.grey,
                 fontSize: 16,
                 fontWeight: FontWeight.w700
@@ -30,7 +30,7 @@ class ItemsCheckAnswer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 35),
           child: Text(
             Provider.of<HomeProvider>(context).qustionList[index].title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: AppColors.mainColor,
                 fontSize: 14,
                 fontWeight: FontWeight.w700
