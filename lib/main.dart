@@ -5,7 +5,7 @@ import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dar
 import 'package:quiz_app/featuers/splash/presentation/view/splash_screen.dart';
 
 main(){
-  runApp(Provider(
+  runApp(ChangeNotifierProvider(
       create: (context) => HomeProvider(),
       child: QuizApp()
   ));

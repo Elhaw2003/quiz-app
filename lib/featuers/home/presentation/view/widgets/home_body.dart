@@ -26,7 +26,7 @@ class _HomeBodyState extends State<HomeBody> {
           child: Text(
             Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].title,
             style: TextStyle(
-                color: AppColors.green,
+                color: AppColors.mainColor,
                 fontWeight: FontWeight.w700,
                 fontSize: 14
             ),
@@ -34,7 +34,7 @@ class _HomeBodyState extends State<HomeBody> {
         ),
         SizedBox(height: 25,),
         CustomDriver(
-            color: AppColors.green.withOpacity(0.5),
+            color: AppColors.mainColor.withOpacity(0.5),
             endIndent: 50,
             indent: 50,
         ),
@@ -47,11 +47,11 @@ class _HomeBodyState extends State<HomeBody> {
                 child: Row(
                   children: [
                     Radio(
-                        fillColor: WidgetStateProperty.all(AppColors.green),
+                        fillColor: WidgetStateProperty.all(AppColors.mainColor),
                         value: answer,
                         groupValue: Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].selectedAnswer,
                         onChanged: (t) {
-                          Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].selectedAnswer = t;
+                          Provider.of<HomeProvider>(context,listen: false).qustionList[Provider.of<HomeProvider>(context,listen: false).quistionIndex].selectedAnswer = t;
                       setState(() {});
                     }),
                     Expanded(
@@ -71,7 +71,7 @@ class _HomeBodyState extends State<HomeBody> {
         ),
         SizedBox(height: 20,),
         CustomDriver(
-          color: AppColors.green.withOpacity(0.5),
+          color: AppColors.mainColor.withOpacity(0.5),
           endIndent: 50,
           indent: 50,
         ),
@@ -80,10 +80,10 @@ class _HomeBodyState extends State<HomeBody> {
           padding: const EdgeInsets.symmetric(horizontal: 132),
           child: CustomBottom(
             onTap: (){
-              Provider.of<HomeProvider>(context).plusQuistionIndex(context);
+              Provider.of<HomeProvider>(context,listen: false).plusQuistionIndex(context);
             },
-              colorBottom: AppColors.green,
-              colorBorder: AppColors.green,
+              colorBottom: AppColors.mainColor,
+              colorBorder: AppColors.mainColor,
               colorTitle: AppColors.white,
               title: Provider.of<HomeProvider>(context).quistionIndex == Provider.of<HomeProvider>(context).qustionList.length - 1 ? AppTexts.send:AppTexts.next
           ),

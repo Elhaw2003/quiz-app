@@ -6,7 +6,7 @@ class CustomAbbpar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.green,
+      backgroundColor: AppColors.mainColor,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(30),

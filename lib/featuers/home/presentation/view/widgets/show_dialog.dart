@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:quiz_app/core/utilies/app_colors.dart';
 import 'package:quiz_app/core/utilies/app_texts.dart';
 import 'package:quiz_app/core/widgets/custom_bottom.dart';
+import 'package:quiz_app/featuers/check_answer/presentation/view/check_answer_screen.dart';
 import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dart';
 
 class customShowDialog extends StatelessWidget {
@@ -17,17 +18,23 @@ class customShowDialog extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                  onPressed: (){},
-                  icon: Icon(Icons.close,color: AppColors.black,)
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.close,color: AppColors.black,)
+                ),
               ),
               SizedBox(height: 15,),
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.darkWhite,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: AppColors.green,width: 0.5)
+                  border: Border.all(color: AppColors.mainColor,width: 0.5)
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 75,vertical: 30),
@@ -45,7 +52,7 @@ class customShowDialog extends StatelessWidget {
                       Text(
                           "(${Provider.of<HomeProvider>(context).score}/${Provider.of<HomeProvider>(context).qustionList.length*10})",
                         style: TextStyle(
-                            color: AppColors.green,
+                            color: AppColors.mainColor,
                             fontSize: 18,
                             fontWeight: FontWeight.w700
                         ),
@@ -56,18 +63,23 @@ class customShowDialog extends StatelessWidget {
               ),
               SizedBox(height: 24,),
               CustomBottom(
+                  onTap: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (c){
+                      return CheckAnswerScreen();
+                    }));
+                  },
                   colorBottom: AppColors.darkWhite,
-                  colorBorder: AppColors.green,
-                  colorTitle: AppColors.green,
-                  title: AppTexts.checkAnswers
+                  colorBorder: AppColors.mainColor,
+                  colorTitle: AppColors.mainColor,
+                  title: AppTexts.lookYourAnswers
               ),
               SizedBox(height: 16,),
               CustomBottom(
                   onTap: (){
                     Navigator.pop(context);
                   },
-                  colorBottom: AppColors.green,
-                  colorBorder: AppColors.green,
+                  colorBottom: AppColors.mainColor,
+                  colorBorder: AppColors.mainColor,
                   colorTitle: AppColors.white,
                   title: AppTexts.reStart
               ),
