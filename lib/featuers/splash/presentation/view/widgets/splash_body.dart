@@ -18,10 +18,10 @@ class SplashBody extends StatelessWidget {
             height: 252,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Center(
           child: JelloIn(
-            duration: Duration(seconds: 3),
+            duration: const Duration(seconds: 3),
             child: Image.asset(
               AppImages.logo,
               width: 231,
@@ -29,7 +29,7 @@ class SplashBody extends StatelessWidget {
             ),
           ),
         ),
-        Spacer(),
+        const Spacer(),
         Align(
           alignment: Alignment.bottomRight,
           child: Image.asset(

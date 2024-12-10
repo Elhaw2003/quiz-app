@@ -20,11 +20,11 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 45,),
+        const SizedBox(height: 45,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Text(
-            Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].title,
+            Provider.of<HomeProvider>(context).questionList[Provider.of<HomeProvider>(context).questionIndex].title,
             style: const TextStyle(
                 color: AppColors.mainColor,
                 fontWeight: FontWeight.w700,
@@ -32,15 +32,15 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
             ),
           ),
         ),
-        SizedBox(height: 25,),
+        const SizedBox(height: 25,),
         CustomDriver(
           color: AppColors.mainColor.withOpacity(0.5),
           endIndent: 50,
           indent: 50,
         ),
-        SizedBox(height: 17,),
+        const SizedBox(height: 17,),
         // ( ... )  >>  cascade operator
-        ...Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].answers.map(
+        ...Provider.of<HomeProvider>(context).questionList[Provider.of<HomeProvider>(context).questionIndex].answers.map(
                 (answer){
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 27),
@@ -49,9 +49,9 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
                     Radio(
                         fillColor: WidgetStateProperty.all(AppColors.mainColor),
                         value: answer,
-                        groupValue: Provider.of<HomeProvider>(context).qustionList[Provider.of<HomeProvider>(context).quistionIndex].selectedAnswer,
+                        groupValue: Provider.of<HomeProvider>(context).questionList[Provider.of<HomeProvider>(context).questionIndex].selectedAnswer,
                         onChanged: (t) {
-                          Provider.of<HomeProvider>(context,listen: false).qustionList[Provider.of<HomeProvider>(context,listen: false).quistionIndex].selectedAnswer = t;
+                          Provider.of<HomeProvider>(context,listen: false).questionList[Provider.of<HomeProvider>(context,listen: false).questionIndex].selectedAnswer = t;
                           setState(() {});
                         }),
                     Expanded(
@@ -69,29 +69,29 @@ class _ItemsHomeBodyState extends State<ItemsHomeBody> {
               );
             }
         ),
-        SizedBox(height: 20,),
+        const SizedBox(height: 20,),
         CustomDriver(
           color: AppColors.mainColor.withOpacity(0.5),
           endIndent: 50,
           indent: 50,
         ),
-        SizedBox(height: 25,),
+        const SizedBox(height: 25,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 132),
           child: CustomBottom(
               onTap: (){
-                Provider.of<HomeProvider>(context,listen: false).plusQuistionIndex(context);
+                Provider.of<HomeProvider>(context,listen: false).plusQuestionIndex(context);
               },
               colorBottom: AppColors.mainColor,
               colorBorder: AppColors.mainColor,
               colorTitle: AppColors.white,
-              title: Provider.of<HomeProvider>(context).quistionIndex == Provider.of<HomeProvider>(context).qustionList.length - 1 ? AppTexts.send:AppTexts.next
+              title: Provider.of<HomeProvider>(context).questionIndex == Provider.of<HomeProvider>(context).questionList.length - 1 ? AppTexts.send:AppTexts.next
           ),
         ),
-        SizedBox(height: 40,),
+        const SizedBox(height: 40,),
         Center(
           child: Text(
-            "(${Provider.of<HomeProvider>(context).count}/${Provider.of<HomeProvider>(context).qustionList.length})",
+            "(${Provider.of<HomeProvider>(context).count}/${Provider.of<HomeProvider>(context).questionList.length})",
             style: const TextStyle(
                 color: AppColors.grey,
                 fontWeight: FontWeight.w700,

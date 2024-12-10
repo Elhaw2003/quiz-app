@@ -6,8 +6,8 @@ import 'package:quiz_app/core/widgets/custom_bottom.dart';
 import 'package:quiz_app/featuers/check_answer/presentation/view/check_answer_screen.dart';
 import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dart';
 
-class customShowDialog extends StatelessWidget {
-   customShowDialog({super.key});
+class CustomShowDialog extends StatelessWidget {
+   const CustomShowDialog({super.key});
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -27,10 +27,10 @@ class customShowDialog extends StatelessWidget {
                     onPressed: (){
                       Provider.of<HomeProvider>(context,listen: false).reStart(context);
                     },
-                    icon: Icon(Icons.close,color: AppColors.black,)
+                    icon: const Icon(Icons.close,color: AppColors.black,)
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.darkWhite,
@@ -49,9 +49,9 @@ class customShowDialog extends StatelessWidget {
                           fontWeight: FontWeight.w700
                         ),
                       ),
-                      SizedBox(height: 18,),
+                      const SizedBox(height: 18,),
                       Text(
-                          "(${Provider.of<HomeProvider>(context).score}/${Provider.of<HomeProvider>(context).qustionList.length*10})",
+                          "(${Provider.of<HomeProvider>(context).score}/${Provider.of<HomeProvider>(context).questionList.length*10})",
                         style: const TextStyle(
                             color: AppColors.mainColor,
                             fontSize: 18,
@@ -62,11 +62,11 @@ class customShowDialog extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 24,),
+              const SizedBox(height: 24,),
               CustomBottom(
                   onTap: (){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (c){
-                      return CheckAnswerScreen();
+                      return const CheckAnswerScreen();
                     }));
                   },
                   colorBottom: AppColors.darkWhite,
@@ -74,7 +74,7 @@ class customShowDialog extends StatelessWidget {
                   colorTitle: AppColors.mainColor,
                   title: AppTexts.lookYourAnswers
               ),
-              SizedBox(height: 16,),
+              const SizedBox(height: 16,),
               CustomBottom(
                   onTap: (){
                     Provider.of<HomeProvider>(context,listen: false).reStart(context);

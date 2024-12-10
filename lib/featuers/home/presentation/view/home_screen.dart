@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: AppColors.white,
         appBar: AppBar(
           toolbarHeight: 80,
-          flexibleSpace: CustomAbbpar(text: AppTexts.quizApp,),
+          flexibleSpace: const CustomAbbpar.CustomAppbar(text: AppTexts.quizApp,),
         ),
         body: HomeBody(),
       ),

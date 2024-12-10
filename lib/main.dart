@@ -4,11 +4,13 @@ import 'package:quiz_app/core/utilies/app_fonts.dart';
 import 'package:quiz_app/featuers/home/presentation/controller/home_provider.dart';
 import 'package:quiz_app/featuers/splash/presentation/view/splash_screen.dart';
 
-main(){
-  runApp(ChangeNotifierProvider(
+void main(){
+  runApp(
+      ChangeNotifierProvider(
       create: (context) => HomeProvider(),
-      child: QuizApp()
-  ));
+      child: const QuizApp(),
+  )
+  );
 }
 class QuizApp extends StatelessWidget {
   const QuizApp({super.key});
@@ -20,7 +22,7 @@ class QuizApp extends StatelessWidget {
         fontFamily: AppFonts.almarai
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

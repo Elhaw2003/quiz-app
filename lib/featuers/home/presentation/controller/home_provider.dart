@@ -7,7 +7,7 @@ import 'package:quiz_app/core/utilies/app_texts.dart';
 import 'package:quiz_app/featuers/home/presentation/view/widgets/show_dialog.dart';
 
 class HomeProvider extends ChangeNotifier{
-  List <QuestionModel> qustionList = [
+  List <QuestionModel> questionList = [
     QuestionModel(title: "كم عدد سور القرآن الكريم؟", answers: ["110","100","90","114"], correctAnswer: "114", selectedAnswer: null),
     QuestionModel(title: "من هو أول من آمن برسالة النبي محمد صلى الله عليه وسلم من الرجال؟", answers: ["ابوبكر","عمر بن الحطاب","علي بن ابي طالب","عثمان بن عفان"], correctAnswer: "ابوبكر", selectedAnswer: null),
     QuestionModel(title: "كم عدد أجزاء القرآ الكريم؟", answers: ["110","40","30","35"], correctAnswer: "30", selectedAnswer: null),
@@ -18,26 +18,26 @@ class HomeProvider extends ChangeNotifier{
     QuestionModel(title: "في أي شهر فرض صيام رمضان؟", answers: ["محرم","رجب","شعبان","رمضان"], correctAnswer: "شعبان", selectedAnswer: null),
     QuestionModel(title: "ما هو الإسم الأول للنبي محمد صلى الله عليه وسلم قبل البعثة؟", answers: ["الصادق","الأمين","الشريف","الحكيم"], correctAnswer: "الأمين", selectedAnswer: null)
   ];
-  int quistionIndex = 0;
+  int questionIndex = 0;
   int count = 1;
   int score = 0;
   checkAnswer(context){
-    for(int i = 0 ; i<Provider.of<HomeProvider>(context,listen: false).qustionList.length;i++){
-      if(Provider.of<HomeProvider>(context,listen: false).qustionList[i].correctAnswer == Provider.of<HomeProvider>(context,listen: false).qustionList[i].selectedAnswer){
+    for(int i = 0 ; i<Provider.of<HomeProvider>(context,listen: false).questionList.length;i++){
+      if(Provider.of<HomeProvider>(context,listen: false).questionList[i].correctAnswer == Provider.of<HomeProvider>(context,listen: false).questionList[i].selectedAnswer){
         score +=10;
       }
     }
   }
-  plusQuistionIndex(context){
-    if(quistionIndex < Provider.of<HomeProvider>(context,listen: false).qustionList.length-1){
-      if(Provider.of<HomeProvider>(context,listen: false).qustionList[quistionIndex].selectedAnswer != null ){
-        quistionIndex++;
+  plusQuestionIndex(context){
+    if(questionIndex < Provider.of<HomeProvider>(context,listen: false).questionList.length-1){
+      if(Provider.of<HomeProvider>(context,listen: false).questionList[questionIndex].selectedAnswer != null ){
+        questionIndex++;
         count++;
         notifyListeners();
       }
       else{
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
                 backgroundColor: AppColors.mainColor,
                 content: Text(
                   AppTexts.pleaseChooseOneAnswer,
@@ -53,18 +53,18 @@ class HomeProvider extends ChangeNotifier{
           barrierDismissible: false,
           context: context,
           builder: (c){
-            return customShowDialog();
+            return CustomShowDialog();
           }
       );
     }
   }
   changeSelectedAnswersToNull(){
-    for(int i = 0 ; i< qustionList.length;i++){
-      qustionList[i].selectedAnswer = null;
+    for(int i = 0 ; i< questionList.length;i++){
+      questionList[i].selectedAnswer = null;
     }
   }
  reStart(context){
-    quistionIndex = 0;
+    questionIndex = 0;
     changeSelectedAnswersToNull();
     count = 1;
     score = 0;

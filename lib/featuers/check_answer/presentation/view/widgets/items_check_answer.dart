@@ -17,7 +17,7 @@ class ItemsCheckAnswer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Text(
-            "(${countIndex}",
+            "($countIndex",
             style: const TextStyle(
                 color: AppColors.grey,
                 fontSize: 16,
@@ -29,7 +29,7 @@ class ItemsCheckAnswer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35),
           child: Text(
-            Provider.of<HomeProvider>(context).qustionList[index].title,
+            Provider.of<HomeProvider>(context).questionList[index].title,
             style: const TextStyle(
                 color: AppColors.mainColor,
                 fontSize: 14,
@@ -42,7 +42,7 @@ class ItemsCheckAnswer extends StatelessWidget {
         const SizedBox(height: 26,),
         Wrap(
           children: [
-            ...Provider.of<HomeProvider>(context).qustionList[index].answers.map(
+            ...Provider.of<HomeProvider>(context).questionList[index].answers.map(
                   (answers){
                 return SizedBox(
                   width: MediaQuery.sizeOf(context).width/2,
@@ -56,10 +56,10 @@ class ItemsCheckAnswer extends StatelessWidget {
                           fontSize: 14,
 
                           color:
-                          Provider.of<HomeProvider>(context).qustionList[index].correctAnswer == answers?
+                          Provider.of<HomeProvider>(context).questionList[index].correctAnswer == answers?
                           AppColors.green :
-                          Provider.of<HomeProvider>(context).qustionList[index].correctAnswer != Provider.of<HomeProvider>(context).qustionList[index].selectedAnswer &&
-                              Provider.of<HomeProvider>(context).qustionList[index].selectedAnswer == answers?
+                          Provider.of<HomeProvider>(context).questionList[index].correctAnswer != Provider.of<HomeProvider>(context).questionList[index].selectedAnswer &&
+                              Provider.of<HomeProvider>(context).questionList[index].selectedAnswer == answers?
                           AppColors.red:
                           AppColors.grey
 

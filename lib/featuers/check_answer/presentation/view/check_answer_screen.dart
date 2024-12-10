@@ -13,7 +13,7 @@ class CheckAnswerScreen extends StatelessWidget {
       backgroundColor: AppColors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        flexibleSpace: const CustomAbbpar(
+        flexibleSpace: const CustomAbbpar.CustomAppbar(
           text: AppTexts.checkAnswer,
         ),
       ),
